@@ -1,27 +1,41 @@
-/* ARGUS TOWER - Main Stylesheet */
+/* ARGUS TOWER - Modern Dark Stylesheet */
 
-QWidget {
-    background-color: #1e1e24;
-    color: #e0e0e0;
+QMainWindow, QWidget {
+    background-color: #18181b; /* VS Code style deep dark background */
+    color: #e4e4e7;
     font-family: "Segoe UI", Arial, sans-serif;
     font-size: 13px;
 }
 
-/* Native Menu Bar */
+/* Native Menu Bar (Top Panel) */
 QMenuBar {
-    background-color: #141418;
+    background-color: #18181b;
     color: #cccccc;
-    border-bottom: 1px solid #2d2d35;
+    border-bottom: 1px solid #27272a;
+}
+
+QMenuBar::item {
+    spacing: 3px;
+    padding: 6px 10px;
+    background: transparent;
 }
 
 QMenuBar::item:selected {
-    background-color: #2d2d35;
+    background-color: #27272a;
     color: #ffffff;
+    border-radius: 4px;
 }
 
 QMenu {
-    background-color: #141418;
-    border: 1px solid #2d2d35;
+    background-color: #27272a;
+    color: #e4e4e7;
+    border: 1px solid #3f3f46;
+    padding: 4px;
+}
+
+QMenu::item {
+    padding: 6px 24px 6px 24px;
+    border-radius: 4px;
 }
 
 QMenu::item:selected {
@@ -31,14 +45,14 @@ QMenu::item:selected {
 
 /* Sidebar Styles */
 #Sidebar {
-    background-color: #141418;
-    border-right: 1px solid #2d2d35;
+    background-color: #18181b;
+    border-right: 1px solid #27272a;
 }
 
 #Sidebar QPushButton {
-    background-color: #26262e;
-    color: #a0a0b0;
-    border: 1px solid #33333d;
+    background-color: transparent;
+    color: #a1a1aa;
+    border: none;
     border-radius: 4px;
     padding: 10px;
     text-align: left;
@@ -46,20 +60,49 @@ QMenu::item:selected {
 }
 
 #Sidebar QPushButton:hover {
-    background-color: #33333d;
+    background-color: #27272a;
     color: #ffffff;
 }
 
 #Sidebar QPushButton:checked {
-    background-color: #3b82f6;
+    background-color: #27272a;
+    color: #60a5fa;
+    border-left: 3px solid #3b82f6;
+    border-radius: 0px;
+}
+
+/* Tab Widget (Fix for Drone 1 / Drone 2 buttons) */
+QTabWidget::pane {
+    border: 1px solid #27272a;
+    background-color: #18181b;
+    border-radius: 4px;
+}
+
+QTabBar::tab {
+    background-color: #18181b;
+    color: #a1a1aa;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-bottom: 2px solid transparent;
+    margin-right: 4px;
+}
+
+QTabBar::tab:hover {
     color: #ffffff;
-    border: 1px solid #60a5fa;
+    background-color: #27272a;
+    border-radius: 4px;
+}
+
+QTabBar::tab:selected {
+    color: #60a5fa;
+    border-bottom: 2px solid #3b82f6;
+    font-weight: bold;
 }
 
 /* Card / Box Containers */
 QGroupBox, .CardWidget {
-    background-color: #26262e;
-    border: 1px solid #33333d;
+    background-color: #1f1f22;
+    border: 1px solid #27272a;
     border-radius: 6px;
     margin-top: 6px;
     padding: 10px;
@@ -67,32 +110,77 @@ QGroupBox, .CardWidget {
 
 /* Tables & Lists */
 QTableWidget, QListWidget {
-    background-color: #1a1a20;
-    border: 1px solid #33333d;
-    gridline-color: #2d2d35;
+    background-color: #1f1f22;
+    border: 1px solid #27272a;
+    gridline-color: #27272a;
     border-radius: 4px;
+    outline: 0;
 }
 
 QHeaderView::section {
-    background-color: #26262e;
-    color: #cccccc;
+    background-color: #1f1f22;
+    color: #a1a1aa;
     padding: 4px;
-    border: 1px solid #33333d;
+    border: 1px solid #27272a;
+    font-weight: bold;
 }
 
 /* Action Buttons */
+QPushButton {
+    background-color: #27272a;
+    border: 1px solid #3f3f46;
+    color: white;
+    border-radius: 4px;
+    padding: 6px 12px;
+}
+
+QPushButton:hover {
+    background-color: #3f3f46;
+}
+
 QPushButton#ApproveBtn {
     background-color: #16a34a;
-    color: white;
+    border: none;
     font-weight: bold;
-    border-radius: 4px;
-    padding: 6px;
+}
+
+QPushButton#ApproveBtn:hover {
+    background-color: #15803d;
 }
 
 QPushButton#RejectBtn {
     background-color: #dc2626;
-    color: white;
+    border: none;
     font-weight: bold;
+}
+
+QPushButton#RejectBtn:hover {
+    background-color: #b91c1c;
+}
+
+/* Map View Specific Styles */
+QFrame#MiniMap {
+    background-color: #1f1f22;
+    border: 1px solid #27272a;
+    border-radius: 6px;
+}
+
+QFrame#MiniMap:hover {
+    border: 1px solid #3b82f6;
+}
+
+QPushButton#MiniMapHeader {
+    background-color: transparent;
+    color: #a1a1aa;
+    font-weight: bold;
+    font-size: 11px;
+    border: none;
+    text-align: center;
+    padding: 4px;
+}
+
+QPushButton#MiniMapHeader:hover {
+    color: #ffffff;
+    background-color: #27272a;
     border-radius: 4px;
-    padding: 6px;
 }

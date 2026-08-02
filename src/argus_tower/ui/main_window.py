@@ -1,11 +1,12 @@
 import os
-from PySide6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QStackedWidget, QMenuBar, QMenu, QTabWidget
+from PySide6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QStackedWidget, QMenuBar, QMenu, QTabWidget, QLabel, QPushButton, QDialog, QVBoxLayout
 from PySide6.QtGui import QAction
 
 from argus_tower.ui.widgets.sidebar import Sidebar
 from argus_tower.ui.widgets.map_view import MapView
 from argus_tower.ui.widgets.drone_dashboard import DroneDashboardWidget
 from argus_tower.vehicle.vehicle_manager import VehicleManager
+from argus_tower.config.settings import APP_VERSION, APP_AUTHORS
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -46,6 +47,57 @@ class MainWindow(QMainWindow):
         # Help Menu
         help_menu = menu_bar.addMenu("Help")
 
+        # 1. Contact Us
+        action_contact = QAction("Contact Us", self)
+        help_menu.addAction(action_contact)
+
+        # 2. About Us
+        action_about = QAction("About Us", self)
+        action_about.triggered.connect(self._show_about_dialog)
+        help_menu.addAction(action_about)
+
+        # 3. Check for Updates (Sub-menu)
+        update_menu = help_menu.addMenu("Check for Updates")
+        
+        action_update_sw = QAction("Check for software update", self)
+        action_update_fw = QAction("Check for firmware update", self)
+        
+        update_menu.addAction(action_update_sw)
+        update_menu.addAction(action_update_fw)
+    def _show_about_dialog(self):
+        # Create a custom popup dialog for About Us
+        dialog = QDialog(self)
+        dialog.setWindowTitle("About Us")
+        dialog.setFixedSize(350, 200)
+        
+        # We inherit the main dark stylesheet so the popup doesn't look out of place
+        dialog.setStyleSheet(self.styleSheet())
+        
+        layout = QVBoxLayout(dialog)
+        
+        info_text = (
+            "<h2 style='color: #60a5fa;'>ARGUS TOWER</h2>"
+            f"<p><b>Version:</b> {APP_VERSION}</p>"
+            f"<p><b>Developed by:</b> {APP_AUTHORS}</p>"
+            "<p><i>Advanced Combat Planning & Multi-Vehicle Platform.</i></p>"
+        )
+        
+        lbl_info = QLabel(info_text)
+        lbl_info.setWordWrap(True)
+        layout.addWidget(lbl_info)
+        
+        # Add stretch to push the button to the bottom
+        layout.addStretch()
+        
+        # Custom Close Button
+        btn_close = QPushButton("Close")
+        btn_close.clicked.connect(dialog.accept)
+        layout.addWidget(btn_close)
+        
+        # exec() blocks the main window until the popup is closed
+        dialog.exec()
+        
+        
     def _setup_layout(self):
         main_container = QWidget()
         self.setCentralWidget(main_container)

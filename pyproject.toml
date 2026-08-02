@@ -1,7 +1,7 @@
 [project]
 name = "argus-tower"
 version = "0.1.0"
-description = "Ground Control Station software built with PySide6"
+description = "Ground Control Station software for combat mission planning"
 authors = [
     {name = "samannoy", email = "prince.sam1495@gmail.com"}
 ]
