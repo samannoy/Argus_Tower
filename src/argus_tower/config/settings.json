@@ -1,0 +1,7 @@
+{
+  "app_title": "ARGUS TOWER - Ground Control Station",
+  "window_width": 1280,
+  "window_height": 800,
+  "default_baudrate": 115200,
+  "max_vehicles": 8
+}

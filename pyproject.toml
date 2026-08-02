@@ -1,0 +1,38 @@
+[project]
+name = "argus-tower"
+version = "0.1.0"
+description = "Ground Control Station software built with PySide6"
+authors = [
+    {name = "samannoy", email = "prince.sam1495@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<3.15"
+
+dependencies = [
+    "pyside6 (>=6.11.1,<7.0.0)",
+    "pyserial (>=3.5,<4.0)",         # Serial I/O for hardware links (Radio/MAVLink)
+    "opencv-python (>=4.10.0,<5.0)",  # Low-latency video stream decoding
+    "numpy (>=2.0.0,<3.0)"            # Fast array manipulation for video frames/telemetry
+]
+
+# Expose a CLI entrypoint so you can run `poetry run argus-tower` directly
+[project.scripts]
+argus-tower = "argus_tower.main:main"
+
+[tool.poetry]
+packages = [{include = "argus_tower", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.1.1,<10.0.0)",
+    "pytest-qt (>=4.4.0,<5.0.0)",    # Essential for unit testing PySide6 widgets/signals
+    "ruff (>=0.16.0,<0.17.0)",
+    "black (>=26.5.1,<27.0.0)"
+]
+
+[tool.poetry.scripts]
+argus = "argus_tower.main:main"

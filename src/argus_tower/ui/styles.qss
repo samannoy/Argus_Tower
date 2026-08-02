@@ -1,0 +1,98 @@
+/* ARGUS TOWER - Main Stylesheet */
+
+QWidget {
+    background-color: #1e1e24;
+    color: #e0e0e0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 13px;
+}
+
+/* Native Menu Bar */
+QMenuBar {
+    background-color: #141418;
+    color: #cccccc;
+    border-bottom: 1px solid #2d2d35;
+}
+
+QMenuBar::item:selected {
+    background-color: #2d2d35;
+    color: #ffffff;
+}
+
+QMenu {
+    background-color: #141418;
+    border: 1px solid #2d2d35;
+}
+
+QMenu::item:selected {
+    background-color: #3b82f6;
+    color: #ffffff;
+}
+
+/* Sidebar Styles */
+#Sidebar {
+    background-color: #141418;
+    border-right: 1px solid #2d2d35;
+}
+
+#Sidebar QPushButton {
+    background-color: #26262e;
+    color: #a0a0b0;
+    border: 1px solid #33333d;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+}
+
+#Sidebar QPushButton:hover {
+    background-color: #33333d;
+    color: #ffffff;
+}
+
+#Sidebar QPushButton:checked {
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: 1px solid #60a5fa;
+}
+
+/* Card / Box Containers */
+QGroupBox, .CardWidget {
+    background-color: #26262e;
+    border: 1px solid #33333d;
+    border-radius: 6px;
+    margin-top: 6px;
+    padding: 10px;
+}
+
+/* Tables & Lists */
+QTableWidget, QListWidget {
+    background-color: #1a1a20;
+    border: 1px solid #33333d;
+    gridline-color: #2d2d35;
+    border-radius: 4px;
+}
+
+QHeaderView::section {
+    background-color: #26262e;
+    color: #cccccc;
+    padding: 4px;
+    border: 1px solid #33333d;
+}
+
+/* Action Buttons */
+QPushButton#ApproveBtn {
+    background-color: #16a34a;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 6px;
+}
+
+QPushButton#RejectBtn {
+    background-color: #dc2626;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 6px;
+}
